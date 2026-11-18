@@ -35,11 +35,11 @@ public class VirtualPet {
         }
     }
 
-    public int getEnergyLvl(){
+    public int getEnergyLevel(){
         return energyLvl;
     }
 
-    public int getHappinessLvl(){
+    public int getHappinessLevel(){
         return happinessLvl;
     }
 
@@ -57,6 +57,7 @@ public class VirtualPet {
     public void updateStatus(){
         happinessLvl--;
         energyLvl--;
+        ageMonths++;
 
         if(energyLvl > 10){
             energyLvl = 10;
@@ -66,7 +67,12 @@ public class VirtualPet {
             happinessLvl = 10;
         }
 
-        
+        if(ageMonths == 12){
+            ageYears++;
+            ageMonths = 0;
+        }
+
+
     }
 
 
