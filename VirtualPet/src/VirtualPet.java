@@ -2,8 +2,8 @@
 
 public class VirtualPet {
     private String name;
-    private int energyLvl;
-    private int happinessLvl;
+    private int energyLevel;
+    private int happinessLevel;
     private int weight;
     private int ageYears;
     private int ageMonths;
@@ -11,6 +11,10 @@ public class VirtualPet {
     public VirtualPet(String name){
         this.name = name;
         this.weight = 5;
+        energyLevel = 0;
+        happinessLevel = 0;
+        ageYears = 0;
+        ageMonths = 0;
     }
 
     public String getName(){
@@ -18,54 +22,47 @@ public class VirtualPet {
     }
 
     public String toString(){
-        return name + "'s Information: \n Energy: " + energyLvl + "\n Happiness: "
-                + happinessLvl + "\n Weight: " + weight + "\n Age: "
+        return name + "'s Information: \n Energy: " + energyLevel + "\n Happiness: "
+                + happinessLevel + "\n Weight: " + weight + "\n Age: "
                 + ageMonths + " months and " + ageYears + " years";
     }
 
     public void feed() {
-        energyLvl++;
-        weight++;
+        if(energyLevel < 10){
+            energyLevel++;
+        }
 
-        if (energyLvl > 10) {
-            energyLvl = 10;
-        }
-        else if(energyLvl < 0){
-            energyLvl = 0;
-        }
+        weight++;
     }
 
     public int getEnergyLevel(){
-        return energyLvl;
+        return energyLevel;
     }
 
     public int getHappinessLevel(){
-        return happinessLvl;
+        return happinessLevel;
     }
 
     public void play(){
-        happinessLvl++;
-        weight--;
-        if(energyLvl > 10){
-            energyLvl = 10;
+        if(happinessLevel < 10){
+            happinessLevel++;
         }
-        if(weight < 5){
-            weight = 5;
+
+        if(weight > 0){
+            weight--;
         }
     }
 
     public void updateStatus(){
-        happinessLvl--;
-        energyLvl--;
+        if(happinessLevel > 0){
+            happinessLevel--;
+        }
+
+        if(energyLevel > 0){
+            energyLevel--;
+        }
+        
         ageMonths++;
-
-        if(energyLvl > 10){
-            energyLvl = 10;
-        }
-
-        if(happinessLvl > 10){
-            happinessLvl = 10;
-        }
 
         if(ageMonths == 12){
             ageYears++;
@@ -74,8 +71,5 @@ public class VirtualPet {
 
 
     }
-
-
-
 
 }
