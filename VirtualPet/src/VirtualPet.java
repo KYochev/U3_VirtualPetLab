@@ -61,7 +61,7 @@ public class VirtualPet {
         if(energyLevel > 0){
             energyLevel--;
         }
-        
+
         ageMonths++;
 
         if(ageMonths == 12){
